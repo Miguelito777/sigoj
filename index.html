@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reportes</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+</head>
+<body>
+	<hr>
+	<header>
+    		<!-- NAVBAR
+    	    ================================================== -->
+            <div class="container">
+                <ul class="nav nav-tabs">
+                	<div class="row">
+                		<div class="col-xs-3">
+                			<select name="empleados" class="form-control" required="required" id="reportes">
+                			</select>
+                		</div>
+                		<div class="col-xs-2">
+							<div class="row">
+                				<select name="empleados" class="form-control" required="required" id="alcance">
+                					<option value="0">Nacional</option>
+                					<option value="1">Regional</option>
+                					<option value="2">Departamental</option>
+                				</select>
+							</div>
+						</div>
+                		<div class="col-xs-2" id="sub">
+                			
+                		</div>
+                		<div class="col-xs-2" id="subSub">
+                			
+                		</div>
+                		<div class="col-xs-3">
+							<button type='btn' class="btn btn-primary" data-toggle="modal" data-target="#modal-1"> Nuevo Reporte</button>
+                		</div>
+                	</div>
+                </ul>
+            </div>
+
+    </header>
+	<section>
+		<div class="container">
+			<hr>
+			<div class="row">
+				<div class="col-xs-2" ></div>
+				<div class="col-xs-8" id="report"></div>
+				<div class="col-xs-2" ></div>
+			</div>
+		</div>
+	</section>
+	<footer></footer>
+
+
+		<div class="modal fade" id="modal-1">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">Nuevo Reporte</h4>
+					</div>
+					<div class="modal-body" style="text-align:cnter;">
+						<input type="text" placeholder="Tipo reporte" id="nuevoReporte">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" onclick="newReporte();" data-dismiss="modal">Save changes</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<div class="modal fade" id="columnsReport">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title"><div id="titleReport"></div></h4>
+					</div>
+					<div class="modal-body" style="text-align:cnter;">
+						<div class="row">
+							<input class="form-control {2:form-control-{1:sm|lg}}" type="text" placeholder="Nombre columna" id="nameNewcolumn">
+						</div>
+						<br>
+						<div class="row" id="columnsReport">
+							<table class="table table-hover">
+								<thead>
+									<tr id="titlesColumns"></tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary" onclick="addColumn();">Aniadir Columna</button>
+						<button type="button" class="btn btn-success" onclick="saveReport();" data-dismiss="modal">Crear Reporte</button>						
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+
+	<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/modelo.js"></script>
+	<script type="text/javascript" src="js/controlador.js"></script>
+</body>
+</html>
+
+
