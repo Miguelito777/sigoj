@@ -23,6 +23,18 @@ function utf8_encode_recursive ($array)
     }
     return $result;
 }
+if (isset($_POST["user"]) && isset($_POST["password"])) {
+	$user = new Login($_POST["user"],$_POST["password"]);
+	if(!$user = $user->login()){
+		echo "0";
+	}
+	else{
+		if ($user["typeUser"])
+			echo "1";
+		else
+			echo "2";
+	}
+}
 	// Fragmento de codigo que obtiene datos de un archivo
 
 	if (isset($_GET["getReportes"])) {

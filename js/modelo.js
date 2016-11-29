@@ -2,6 +2,26 @@ function System(){
 	this.statusM;
 	this.tiposReportes = [];
 }
+System.prototype.login = function(user, password){
+	$.ajax({
+		url : "controlador.php",
+		type : "POST",
+		data : {"user" : user, "password" : password},
+		success : function(data){
+			data = parseInt(data);
+			if (data == 0) {
+				alert("Usuario no registrado");
+			}
+			else if(data == 1)
+				window.location = "indexAdmon.html";
+			else
+				if (data == 2) 
+				window.location = "indexInformatic.html";
+
+
+		}
+	})
+}
 System.prototype.getReport = function(){
 	var _this = this;
 	$.ajax({

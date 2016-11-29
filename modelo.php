@@ -13,6 +13,43 @@ class Connection
 }
 
 /**
+* Clase login
+*/
+class Login extends Connection
+{
+	public $user;
+	public $password;
+
+	function __construct($user, $password)
+	{
+		$this->user = $user;
+		$this->password = $password;	
+	}
+
+	public function login(){
+		$query = "SELECT * from users where user = '$this->user' and password = '$this->password'";
+		parent:: __construct();
+		if(!$user = $this->connection->query($query)){
+			$this->connection->close();
+			return false;
+		}
+		else{
+			if ($user == null) {
+				echo "No encontrado";
+				$this->connection->close();
+				return false;
+			}
+			else{
+				$user = $user->fetch_assoc();
+				return $user;
+			}
+		}
+		
+
+	}
+}
+
+/**
 * Reporte
 */
 class Reporte extends Connection
@@ -31,7 +68,7 @@ class Reporte extends Connection
 		$reportes = $this->connection->query($query);
 		$this->connection->close();
 		while($reporte = $reportes->fetch_assoc()){
-			if ($reporte["Tables_in_sigOJ"] != "Departamentos" && $reporte["Tables_in_sigOJ"] != "Municipios" && $reporte["Tables_in_sigOJ"] != "Regiones")
+			if ($reporte["Tables_in_sigOJ"] != "users" && $reporte["Tables_in_sigOJ"] != "Departamentos" && $reporte["Tables_in_sigOJ"] != "Municipios" && $reporte["Tables_in_sigOJ"] != "Regiones")
 				array_push($this->reportesA, $reporte);
 		}
 		return $this->reportesA;

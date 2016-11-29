@@ -2,6 +2,11 @@ var usuario = new System();
 usuario.getReportes();
 var newReport = {};
 
+function login(){
+	var user = document.getElementById("user").value;
+	var password = document.getElementById("password").value;
+	usuario.login(user,password);
+}
 document.getElementById("report").innerHTML = "<div class='alert alert-warning'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button><strong>Seleccione un reporte!</strong></div>";
 var departamentSelected;
 
