@@ -8,6 +8,7 @@ System.prototype.login = function(user, password){
 		type : "POST",
 		data : {"user" : user, "password" : password},
 		success : function(data){
+		console.log(data);
 			data = parseInt(data);
 			if (data == 0) {
 				alert("Usuario no registrado");
@@ -17,8 +18,6 @@ System.prototype.login = function(user, password){
 			else
 				if (data == 2) 
 				window.location = "indexInformatic.html";
-
-
 		}
 	})
 }
@@ -244,7 +243,8 @@ System.prototype.saveReport = function(newReport){
 		data : {"saveReport": newReport},
 		success : function(data){
 			if (parseInt(data) == 1)
-				window.location = "controlador.php?sendRequestReport=true";
+				alert("Reporte Creado Exitosamente");
+				//window.location = "controlador.php?sendRequestReport=true";
 			else
 				alert("Error al crear el reporte");
 		}

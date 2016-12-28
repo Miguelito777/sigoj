@@ -54,13 +54,13 @@ class Login extends Connection
 */
 class Reporte extends Connection
 {
+	public $nameReport;
 	public $reportesA = array();
 	public $columnsReport = array();	
 	function __construct()
 	{
 		# code...
 	}
-
 
 	public function getReports(){
 		$query = "show tables";
@@ -266,7 +266,7 @@ class Reporte extends Connection
 				$valueAll = $valueAll.$columnsReport[$i];								
 		}
 		echo "columns $valueAll";
-		for ($i = 2; $i < count($dataReport); $i++) {
+		for ($i = 2; $i <= count($dataReport); $i++) {
 			$values = "";
 			for ($j = 0; $j < count($dataReport[$i]); $j++) {
 				$col = $columnsReport[$j+1];
